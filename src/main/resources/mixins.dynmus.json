@@ -1,0 +1,17 @@
+{
+	"required": true,
+	"minVersion": "0.8",
+	"package": "net.ludocrypt.dynmus.mixin",
+	"refmap": "mixins.dynmus.refmap.json",
+	"compatibilityLevel": "JAVA_8",
+	"mixins": [
+	],
+	"client": [
+		"MinecraftMixin",
+		"BiomeSoundHandlerMixin",
+		"SimpleSoundMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

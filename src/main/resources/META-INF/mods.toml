@@ -1,0 +1,28 @@
+modLoader="javafml"
+loaderVersion="[32,)"
+license="LGPLv3"
+issueTrackerURL="https://github.com/ludocrypt/Dynamic-Music-Forge/issues"
+[[mods]]
+modId="dynmus"
+version="${file.jarVersion}"
+displayName="Dynamic Music"
+displayURL="https://discord.gg/bbhS2vy"
+logoFile="dynmus.png"
+credits="LudoCrypt, C418"
+authors="LudoCrypt"
+description='''
+Adds more dynamic music ques, and more music itself for that!
+'''
+
+[[dependencies.dynmus]]
+modId="forge"
+mandatory=true
+versionRange="[32,)"
+ordering="NONE"
+side="BOTH"
+[[dependencies.dynmus]]
+modId="minecraft"
+mandatory = true
+versionRange = "[1.16.2,1.17)"
+ordering = "NONE"
+side="BOTH"
