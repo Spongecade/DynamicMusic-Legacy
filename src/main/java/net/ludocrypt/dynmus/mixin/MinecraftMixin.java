@@ -32,16 +32,19 @@ public class MinecraftMixin {
 	@Inject(method = "getBackgroundMusicSelector", at = @At("RETURN"), cancellable = true)
 	private void DYNMUSIC_getBackgroundMusicSelector(CallbackInfoReturnable<BackgroundMusicSelector> ci) {
 		if (ci.getReturnValue() == BackgroundMusicTracks.WORLD_MUSIC || ci.getReturnValue() == BackgroundMusicTracks.CREATIVE_MODE_MUSIC) {
+			int dayTime = (int) (world.getDayTime() % 24000L);
+			float biomeTemp = world.getBiome(this.player.getPosition()).getTemperature();
+
 			if (this.world != null) {
 				if (DynamicMusic.isInCave(world, player.getPosition())) {
 					DYNMUS_setReturnType(ci, DynamicMusicSounds.MUSIC_CAVE);
-				} else if ((world.getBiomeManager().getBiome(this.player.getPosition()).getTemperature() < 0.15F) || (world.isRaining()) && MusicConfig.coldMusic.get()) {
+				} else if (biomeTemp < 0.15F || world.isRaining() && MusicConfig.coldMusic.get()) {
 					DYNMUS_setReturnType(ci, DynamicMusicSounds.MUSIC_COLD);
-				} else if ((world.getBiomeManager().getBiome(this.player.getPosition()).getTemperature() > 0.95F) && (!world.isRaining()) && MusicConfig.hotMusic.get()) {
+				} else if (biomeTemp > 0.95F && !world.isRaining() && MusicConfig.hotMusic.get()) {
 					DYNMUS_setReturnType(ci, DynamicMusicSounds.MUSIC_HOT);
-				} else if (world.getDayTime() <= 12500 && MusicConfig.niceMusic.get()) {
+				} else if (dayTime <= 12500 && MusicConfig.niceMusic.get()) {
 					DYNMUS_setReturnType(ci, DynamicMusicSounds.MUSIC_NICE);
-				} else if (world.getDayTime() > 12500 && MusicConfig.downMusic.get()) {
+				} else if (dayTime > 12500 && MusicConfig.downMusic.get()) {
 					DYNMUS_setReturnType(ci, DynamicMusicSounds.MUSIC_DOWN);
 				}
 			}
@@ -56,6 +59,6 @@ public class MinecraftMixin {
 	
 	@Unique
 	private void DYNMUS_setReturnType(CallbackInfoReturnable<BackgroundMusicSelector> ci, SoundEvent e) {
-		ci.setReturnValue(BackgroundMusicTracks.getDefaultBackgroundMusicSelector(new SoundEvent(ci.getReturnValue() == BackgroundMusicTracks.CREATIVE_MODE_MUSIC ? e.getName() : new ResourceLocation(String.join("", e.getName().toString(), ".creative")))));
+		ci.setReturnValue(BackgroundMusicTracks.getDefaultBackgroundMusicSelector(new SoundEvent(ci.getReturnValue() == BackgroundMusicTracks.CREATIVE_MODE_MUSIC ? new ResourceLocation(String.join("", e.getName().toString(), ".creative")) : e.getName())));
 	}
 }

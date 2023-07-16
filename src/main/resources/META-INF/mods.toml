@@ -1,14 +1,14 @@
 modLoader="javafml"
 loaderVersion="[32,)"
 license="LGPLv3"
-issueTrackerURL="https://github.com/ludocrypt/Dynamic-Music-Forge/issues"
+issueTrackerURL="https://github.com/spongecade/DynamicMusic-Legacy/issues"
 [[mods]]
 modId="dynmus"
 version="${file.jarVersion}"
 displayName="Dynamic Music"
 displayURL="https://discord.gg/bbhS2vy"
 logoFile="dynmus.png"
-credits="LudoCrypt, C418"
+credits="LudoCrypt, C418, Spongecake89"
 authors="LudoCrypt"
 description='''
 Adds more dynamic music ques, and more music itself for that!
