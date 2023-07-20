@@ -2,7 +2,7 @@
 	"schemaVersion": 1,
 	"id": "dynmus",
 	"version": "${version}",
-	"name": "Dynamic Music",
+	"name": "Dynamic Music Legacy",
 	"description": "Adds more dynamic music ques, and more music itself for that!",
 	"authors": [
 		"Spongecade",
