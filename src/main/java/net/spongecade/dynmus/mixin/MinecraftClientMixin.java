@@ -32,7 +32,7 @@ public class MinecraftClientMixin {
 	private void DYNMUSIC_getMusicType(CallbackInfoReturnable<MusicSound> ci) {
 		if (ci.getReturnValue() == MusicType.GAME || ci.getReturnValue() == MusicType.CREATIVE) {
 			float biomeTemp = world.getBiomeAccess().getBiome(this.player.getBlockPos()).getTemperature();
-			long dayTime = world.getTimeOfDay() % 24000;
+			int dayTime = (int) (world.getTimeOfDay() % 24000L);
 			if (this.world != null) {
 				if (DynamicMusic.isInCave(world, player.getBlockPos())) {
 					DYNMUS_setReturnType(ci, DynamicMusic.MUSIC_CAVE);

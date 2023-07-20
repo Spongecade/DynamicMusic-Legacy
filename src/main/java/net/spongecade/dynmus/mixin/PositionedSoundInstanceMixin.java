@@ -28,7 +28,7 @@ public class PositionedSoundInstanceMixin {
 		MinecraftClient client = MinecraftClient.getInstance();
 		if (config.dynamicPitch) {
 			if (client.world != null) {
-				long dayTime = client.world.getTimeOfDay() % 24000L;
+				int dayTime = (int) (client.world.getTimeOfDay() % 24000L);
 				long absTime = Math.abs(dayTime - config.dynamicPitchAnchor);
 				double delta = absTime * (0.0001832172957);
 				double chance = MathHelper.lerp(delta, 1, 0);
