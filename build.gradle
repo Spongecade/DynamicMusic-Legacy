@@ -1,7 +1,6 @@
 buildscript {
     repositories {
         maven { url = 'https://files.minecraftforge.net/maven' }
-        jcenter()
         mavenCentral()
         maven { url = 'https://dist.creeper.host/Sponge/maven' }
         maven { url = 'https://repo.spongepowered.org/maven/' }
@@ -15,7 +14,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.3.2'
+version = '1.3.3'
 group = 'net.ludocrypt.dynmus' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'dynmus'
 
@@ -69,12 +68,11 @@ repositories {
     maven { url = 'https://repo.spongepowered.org/maven/' }
     maven { url = 'https://dist.creeper.host/Sponge/maven' }
 
-    jcenter()
     mavenCentral()
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.5-36.1.0'
+    minecraft 'net.minecraftforge:forge:1.16.5-36.2.34'
     implementation 'org.spongepowered:noise:2.0.0-SNAPSHOT'
     compile 'org.spongepowered:mixin:0.8.1'
 }

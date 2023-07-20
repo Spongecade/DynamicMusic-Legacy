@@ -27,8 +27,8 @@ public class SimpleSoundMixin {
 			Random random = new Random();
 			Minecraft client = Minecraft.getInstance();
 			if (client.world != null) {
-				client.world.getDayTime();
-				long absTime = Math.abs(client.world.getDayTime() - MusicConfig.dynamicPitchAnchor.get());
+				int dayTime = (int) (client.world.getDayTime() % 24000L);
+				long absTime = Math.abs(dayTime - MusicConfig.dynamicPitchAnchor.get());
 				double delta = absTime * (0.0001832172957);
 				double chance = MathHelper.lerp(delta, 1, 0);
 				if (random.nextDouble() < chance) {

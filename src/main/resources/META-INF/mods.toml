@@ -5,10 +5,10 @@ issueTrackerURL="https://github.com/spongecade/DynamicMusic-Legacy/issues"
 [[mods]]
 modId="dynmus"
 version="${file.jarVersion}"
-displayName="Dynamic Music"
+displayName="Dynamic Music Legacy"
 displayURL="https://discord.gg/bbhS2vy"
 logoFile="dynmus.png"
-credits="LudoCrypt, C418, Spongecake89"
+credits="LudoCrypt, Spongecade"
 authors="LudoCrypt"
 description='''
 Adds more dynamic music ques, and more music itself for that!
